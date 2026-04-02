@@ -18,12 +18,48 @@ The Radar Range Equation is a fundamental formula used in radar system design to
 
 
 ### Program
+```
+clc;
+clear;
+close;
+Gt = 20;        
+Gr = 30;        
+lambda = 0.03;  
+sigma = 1;      
+Pmin = 1e-10;                 
+Pt = linspace(1,1000,100);    
+Rmax1 = ((Pt .* Gt .* Gr .* lambda^2 .* sigma) ./ ((4*%pi)^3 .* Pmin)).^(1/4);
+figure(1)
+plot(Pt, Rmax1)
+("Transmitted Power Pt")
+("Maximum Range Rmax")
+("Pt vs Rmax")
+xgrid()
+Pt_const = 500;                 
+Pmin2 = linspace(1e-12,1e-8,100);
+Rmax2 = ((Pt_const .* Gt .* Gr .* lambda^2 .* sigma) ./ ((4*%pi)^3 .* Pmin2)).^(1/4);
+figure(2)
+plot(Pmin2, Rmax2)
+("Minimum Detectable Power Pmin")
+("Maximum Range Rmax")
+("Pmin vs Rmax")
+xgrid()
+
+```
 
 ### Tabulation
 
+<img width="542" height="738" alt="image" src="https://github.com/user-attachments/assets/c7f2e17a-db73-4c5a-92c5-26275e438424" />
+
+
 ### Output
+
+<img width="1915" height="1198" alt="image" src="https://github.com/user-attachments/assets/1e9ef18b-6484-4d4e-84e4-a8c98baabd97" />
+<img width="1916" height="1198" alt="image" src="https://github.com/user-attachments/assets/5dd9be79-813e-4436-b040-9d19dbad772d" />
 
 
 ### Result
+
+Thus, the maximum range of a radar system calculated using the Radar Range Equation is successfully verified using Scilab programming.
 
 
